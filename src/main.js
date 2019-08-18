@@ -4,7 +4,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import {Button} from "ant-design-vue";
+import {Button, Layout, Icon,Drawer} from "ant-design-vue";
 
 //import 'ant-design-vue/dist/antd.less'
 
@@ -14,6 +14,9 @@ Vue.config.productionTip = false;
 //Vue.use(Antd);
 // 按需加载组件
 Vue.use(Button);
+Vue.use(Layout);
+Vue.use(Icon);
+Vue.use(Drawer);
 
 new Vue({
   router,
