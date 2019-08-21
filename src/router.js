@@ -10,6 +10,22 @@ const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
+      {
+          path: "/",
+          component: () =>
+              import(/* webpackChunkName: "layout" */ "@/views"),
+      },
+      {
+          path: "/vuex",
+          component: () =>
+              import(/* webpackChunkName: "layout" */ "@/views/Vuex"),
+      },
+      {
+          path: "/router",
+          component: () =>
+              import(/* webpackChunkName: "layout" */ "@/views/Router"),
+      },
+
     {
       path: '/user',
       // 自定义标志位
@@ -37,7 +53,7 @@ const router = new Router({
       ]
     },
     {
-      path: "/",
+      path: "/menu",
       component: () =>
           import(/* webpackChunkName: "layout" */ "./layouts/BasicLayout"),
       children: [
@@ -122,6 +138,9 @@ const router = new Router({
   ]
 });
 
+let asyncRouter;
+
+
 router.beforeEach((to, from, next) => {
   console.log(to);
   if (to.path != from.path) {
@@ -132,5 +151,50 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(()=>{
   NProgress.done();
-})
+});
+
+function go (to, next) {
+    asyncRouter = filterAsyncRouter(asyncRouter)
+    router.addRoutes(asyncRouter)
+    next({...to, replace: true})
+}
+
+function filterAsyncRouter (routes) {
+    return routes.filter((route) => {
+        let component = route.component;
+        console.log(component);
+        if (component) {
+            switch (route.component) {
+               /* case 'MenuView':
+                    route.component = MenuView
+                    break
+                case 'PageView':
+                    route.component = PageView
+                    break
+                case 'EmptyPageView':
+                    route.component = EmptyPageView
+                    break
+                case 'HomePageView':
+                    route.component = HomePageView
+                    break*/
+                default:
+                    route.component = view(component)
+            }
+            if (route.children && route.children.length) {
+                route.children = filterAsyncRouter(route.children)
+            }
+            return true
+        }
+    })
+}
+
+
+function view (path) {
+    return function (resolve) {
+        import(/* webpackChunkName: "form" */ `@/views/${path}`).then(mod => {
+            resolve(mod)
+        })
+    }
+}
+
 export default router;
