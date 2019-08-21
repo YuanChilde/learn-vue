@@ -12,7 +12,7 @@ const router = new Router({
   routes: [
     {
       path: '/user',
-      // 标志位
+      // 自定义标志位
       hideInMenu: true,
       // 异步加载
       component: () =>
@@ -42,10 +42,10 @@ const router = new Router({
           import(/* webpackChunkName: "layout" */ "./layouts/BasicLayout"),
       children: [
           // dashboard
-        {
+       /* {
           path: "/",
           redirect: "/dashboard/analysis"
-        },
+        },*/
         {
           path: "/dashboard",
           name: "dashboard",
@@ -122,8 +122,9 @@ const router = new Router({
   ]
 });
 
-router.beforeEach((to,from,next)=>{
-  if(to.path!=from.path){
+router.beforeEach((to, from, next) => {
+  console.log(to);
+  if (to.path != from.path) {
     NProgress.start();
   }
   next();
