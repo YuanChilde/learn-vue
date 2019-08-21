@@ -10,8 +10,8 @@ const state = {
 };
 
 const mutations = {
-  mutationsAddCount(state, n = 0){
-    state.count += n;
+  mutationsAddCount(state, data = 0){
+    state.count += data;
   },
   mutationsReduceCount() {
     state.count -= 1;
@@ -19,8 +19,8 @@ const mutations = {
 };
 
 const actions = {
-  actionsAddCount(context, n = 0) {
-    return context.commit('mutationsAddCount', n)
+  actionsAddCount(context, data = 0) {
+    return context.commit('mutationsAddCount', data)
   },
   actionsReduceCount({ commit }) {
     return commit('mutationsReduceCount')

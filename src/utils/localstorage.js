@@ -11,6 +11,6 @@ let db = {
   clear () {
     localStorage.clear()
   }
-}
+};
 
 export default db
