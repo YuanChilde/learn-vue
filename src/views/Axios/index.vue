@@ -1,5 +1,6 @@
 <template>
-  <div style="margin-left: 20px;margin-top: 20px">
+  <div style="margin-left: 20px;margin-top: 10px">
+    <router-link to="/"><a-icon type="home" style="font-size: 16px;margin-top: 10px;color:#000000" /></router-link>
     <h3>请求结果</h3>
     <a-textarea :autosize="{ minRows: 3}" v-model="getRes" />
     <a-divider orientation="left">POST请求</a-divider>

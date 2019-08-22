@@ -20,7 +20,24 @@ const router = new Router({
     },
     {
       path: "/router",
-      component: () => import(/* webpackChunkName: "layout" */ "@/views/Router")
+      component: () => import(/* webpackChunkName: "layout" */ "@/views/Router"),
+      children:[
+        {
+          path: "/router/link1",
+          name: "link1",
+        /*  component: { render: h => {h("router-view")} },*/
+        },
+        {
+          path: "/router/link2",
+          name: "link2",
+          // component: { render: h => {h("router-view")} },
+        },
+        {
+          path: "/router/link3/:name",
+          name: "link3",
+          // component: { render: h => {h("router-view")} },
+        }
+      ]
     },
     {
       path: "/axios",

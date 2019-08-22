@@ -1,5 +1,6 @@
 <template>
   <div class="demo">
+    <router-link to="/"><a-icon type="home"  style="font-size: 16px;margin-top: 10px;color:#000000" /></router-link>
     <a-tabs defaultActiveKey="1" @change="callback">
       <a-tab-pane tab="单模块" key="1">
         <vuex-tab1></vuex-tab1>
