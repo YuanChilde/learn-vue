@@ -1,13 +1,11 @@
 <template>
-
+    <div></div>
 </template>
 
 <script>
-    export default {
-        name: "VuexTab2"
-    }
+export default {
+  name: "VuexTab2"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

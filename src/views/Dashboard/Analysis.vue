@@ -1,13 +1,11 @@
 <template>
-    <div>分析页</div>
+  <div>分析页</div>
 </template>
 
 <script>
-    export default {
-        name: "Analysis"
-    }
+export default {
+  name: "Analysis"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

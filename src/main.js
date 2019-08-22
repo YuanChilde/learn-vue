@@ -3,8 +3,22 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import db from "./utils/localstorage";
+import request from "./api";
 
-import {Button, Col, Drawer, Icon, Layout, Menu, Radio, Row, Tabs, Divider} from "ant-design-vue";
+import {
+  Button,
+  Col,
+  Drawer,
+  Icon,
+  Layout,
+  Menu,
+  Radio,
+  Row,
+  Tabs,
+  Divider,
+  Input,
+} from "ant-design-vue";
 
 //import 'ant-design-vue/dist/antd.less'
 
@@ -23,6 +37,11 @@ Vue.use(Radio);
 Vue.use(Menu);
 Vue.use(Tabs);
 Vue.use(Divider);
+Vue.use(Input);
+
+Vue.prototype.$db = db;
+Vue.prototype.$post = request.post;
+Vue.prototype.$get = request.get;
 
 new Vue({
   router,

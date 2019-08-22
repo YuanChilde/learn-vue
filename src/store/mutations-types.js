@@ -1,5 +1,5 @@
 //
 
 export default {
-    INCREASE: 'INCREASE'
-}
+  INCREASE: "INCREASE"
+};

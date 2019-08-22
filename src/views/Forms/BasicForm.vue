@@ -1,13 +1,11 @@
 <template>
-    <div>基础表单</div>
+  <div>基础表单</div>
 </template>
 
 <script>
-    export default {
-        name: "BasicForm"
-    }
+export default {
+  name: "BasicForm"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
