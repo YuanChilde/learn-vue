@@ -45,6 +45,14 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "layout" */ "@/views/Axios")
     },
     {
+      path: "/basepoint",
+      component: () => import(/* webpackChunkName: "layout" */ "@/views/BasePoint")
+    },
+    {
+      path: "/assignval",
+      component: () => import(/* webpackChunkName: "layout" */ "@/views/AssignVal")
+    },
+    {
       path: "/user",
       // 自定义标志位
       hideInMenu: true,

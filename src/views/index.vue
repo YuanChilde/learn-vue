@@ -2,23 +2,23 @@
   <div class="gutter-example">
     <a-row :gutter="16">
       <a-col class="gutter-row" :span="6">
-        <div class="gutter-box">组件内传值</div>
+        <router-link to="/assignval"><div class="gutter-box">组件内传值</div></router-link>
       </a-col>
       <a-col class="gutter-row" :span="6">
-        <router-link to="/router"
-          ><div class="gutter-box">Router</div></router-link
-        >
+        <router-link to="/router"><div class="gutter-box">Router</div></router-link>
       </a-col>
       <a-col class="gutter-row" :span="6">
         <router-link to="/vuex"><div class="gutter-box">Vuex</div></router-link>
       </a-col>
       <a-col class="gutter-row" :span="6">
-        <router-link to="/axios"
-          ><div class="gutter-box">Axios</div></router-link
-        >
+        <router-link to="/axios">
+          <div class="gutter-box">Axios</div>
+        </router-link>
       </a-col>
       <a-col class="gutter-row" :span="6">
-        <div class="gutter-box">Vue基础知识</div>
+        <router-link to="/basepoint">
+          <div class="gutter-box">Vue基础知识</div>
+        </router-link>
       </a-col>
     </a-row>
   </div>
