@@ -36,7 +36,8 @@ const router = new Router({
           path: "/router/link3/:name",
           name: "link3",
           // component: { render: h => {h("router-view")} },
-        }
+        },
+        { path: '/router/link4/:id/:msgId',component:  () => import(/* webpackChunkName: "layout" */ "@/views/Router/Router1"), props: true },
       ]
     },
     {
@@ -220,5 +221,16 @@ function view(path) {
     });
   };
 }
+
+// 解决路由重复点击报错
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+};
+
+const originalReplace = Router.prototype.replace;
+Router.prototype.replace = function replace(location) {
+  return originalReplace.call(this, location).catch(err => err)
+};
 
 export default router;

@@ -11,10 +11,18 @@
                 <h3>url匹配传参: {{$route.params}}</h3>
             </a-tab-pane>
             <a-tab-pane tab="props解耦" key="2">
-
+                <router-link style="font-size: 16px" to="/router/link4/3/5">点击</router-link><br/><br/>
+                <router-view />
             </a-tab-pane>
             <a-tab-pane tab="跳转方法" key="3">
+                <a-button type="primary" @click="push(0)" >push</a-button>
 
+                <a-button type="primary" @click="rreplace" >replace</a-button>
+
+                <a-button type="primary" @click="rgo" >go</a-button>
+
+                <h3>query传参: {{$route.query}}</h3>
+                <h3>params传参: {{$route.params}}</h3>
             </a-tab-pane>
         </a-tabs>
     </div>
@@ -22,12 +30,31 @@
 
 <script>
 export default {
-  name: "index"
+  name: "index",
+    methods:{
+        push(val){
+            console.log(val);
+            // 默认为path
+            this.$router.push('/router/link1');
+            // this.$router.push({ name: 'link1', params: { id: 123 }})
+            // this.$router.push({ name: 'link1', query: { id: 123 }})
+        },
+        rreplace(){
+            this.$router.replace('/router/link2');
+        },
+        rgo(){
+            this.$router.go(-1);
+        }
+    }
 };
 </script>
 
 <style scoped>
 .demo {
     margin-left: 10%;
+}
+.ant-btn {
+    margin-right: 8px;
+    margin-bottom: 12px;
 }
 </style>
