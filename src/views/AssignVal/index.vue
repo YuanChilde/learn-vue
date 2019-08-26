@@ -11,23 +11,32 @@
             <a-tab-pane tab="（多级单向-父向子）provide/inject" key="3">
                 <a-button type="primary" @click="changeColor()">改变color</a-button>
                 <assign-val-tab3></assign-val-tab3>
-
             </a-tab-pane>
-            <a-tab-pane tab="$parent/$children与 ref" key="4">
+            <a-tab-pane tab="$parent/$children与ref" key="4">
+                <a-button type="primary" @click="getChild()">Child</a-button>
+                <assign-val-tab4 ref="t4"></assign-val-tab4>
             </a-tab-pane>
             <a-tab-pane tab="插槽" key="5">
+                <assign-val-tab5 ></assign-val-tab5>
+            </a-tab-pane>
+            <a-tab-pane tab="v-model" key="6">
+                <assign-val-tab6 ></assign-val-tab6>
             </a-tab-pane>
         </a-tabs>
     </div>
 </template>
 
 <script>
+    import Vue from 'vue';
     import AssignValTab1 from './AssignValTab1';
     import AssignValTab2 from './AssignValTab2';
     import AssignValTab3 from './AssignValTab3';
-    import Vue from 'vue';
+    import AssignValTab4 from './AssignValTab4';
+    import AssignValTab5 from './AssignValTab5';
+    import AssignValTab6 from './AssignValTab6';
 
     export default {
+        name:"AssignVal",
         data(){
             return {
                 users:{
@@ -37,7 +46,7 @@
             }
         },
         components:{
-            AssignValTab1, AssignValTab2, AssignValTab3
+            AssignValTab1, AssignValTab2, AssignValTab3, AssignValTab4, AssignValTab5, AssignValTab6
         },
         created(){
           this.users = [
@@ -48,6 +57,9 @@
                   name:"2222"
               }
           ];
+        },
+        mounted(){
+
         },
         methods:{
             onTest2(){
@@ -62,6 +74,19 @@
                 } else {
                     this.theme.color = this.theme.color === "blue" ? "red" : "blue";
                 }
+            },
+            getChild() {
+                const A = this.$refs.t4;
+                console.log(A.title);
+                A.sayHello();
+
+                // $children不保证顺序
+                /*console.log(this.$children);
+                const B = this.$children[0];
+                console.log('22',B.title);*/
+            },
+            callByChild(){
+                console.log('my is father');
             }
         },
         provide() {
@@ -78,6 +103,10 @@
 
 <style scoped>
 .demo {
-    margin-left: 30%;
+    margin-left: 15%;
+}
+.ant-btn {
+    margin-right: 8px;
+    margin-bottom: 12px;
 }
 </style>
