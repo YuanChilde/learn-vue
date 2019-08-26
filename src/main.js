@@ -18,6 +18,8 @@ import {
   Tabs,
   Divider,
   Input,
+  Form,
+  Checkbox
 } from "ant-design-vue";
 
 //import 'ant-design-vue/dist/antd.less'
@@ -38,6 +40,8 @@ Vue.use(Menu);
 Vue.use(Tabs);
 Vue.use(Divider);
 Vue.use(Input);
+Vue.use(Form);
+Vue.use(Checkbox);
 
 Vue.prototype.$db = db;
 Vue.prototype.$post = request.post;

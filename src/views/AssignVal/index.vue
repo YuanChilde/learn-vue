@@ -20,7 +20,8 @@
                 <assign-val-tab5 ></assign-val-tab5>
             </a-tab-pane>
             <a-tab-pane tab="v-model" key="6">
-                <assign-val-tab6 ></assign-val-tab6>
+                {{haorooms}}
+                <assign-val-tab6 v-model="haorooms"></assign-val-tab6>
             </a-tab-pane>
         </a-tabs>
     </div>
@@ -42,7 +43,8 @@
                 users:{
 
                 },
-                color2: 'yellow'
+                color2: 'yellow',
+                haorooms: "haorooms"
             }
         },
         components:{
