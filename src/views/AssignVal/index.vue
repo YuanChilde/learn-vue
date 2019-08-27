@@ -26,7 +26,7 @@
                     <p>A paragraph for the main content.</p>
                     <p>And another one.</p>
 
-                    <template v-slot:footer>
+                    <template #footer>
                         <p>Here's some contact info</p>
                     </template>
                 </assign-val-tab5>
