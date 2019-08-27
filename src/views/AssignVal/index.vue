@@ -17,7 +17,19 @@
                 <assign-val-tab4 ref="t4"></assign-val-tab4>
             </a-tab-pane>
             <a-tab-pane tab="插槽" key="5">
-                <assign-val-tab5 ></assign-val-tab5>
+                <assign-val-tab5 >
+                   <!-- 父访问子属性值-->
+                    <template v-slot:header="slotProps">
+                        <h1>Here might be a page title {{slotProps.user.name}}</h1>
+                    </template>
+
+                    <p>A paragraph for the main content.</p>
+                    <p>And another one.</p>
+
+                    <template v-slot:footer>
+                        <p>Here's some contact info</p>
+                    </template>
+                </assign-val-tab5>
             </a-tab-pane>
             <a-tab-pane tab="v-model" key="6">
                 {{haorooms}}
