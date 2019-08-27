@@ -13,6 +13,9 @@ export default {
     // state 模块局部变量
     [types.INCREASE](state, data) {
       state.add = data;
+    },
+    someMutation(state, data) {
+
     }
   },
   actions: {
@@ -22,6 +25,26 @@ export default {
       if ((state.count + rootState.count) % 2 === 1) {
         commit("increment");
       }
+    },
+    actionA({commit}) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          commit('someMutation');
+          resolve()
+        }, 1000)
+      })
+    },
+    actionB({dispatch, commit}) {
+      return dispatch('actionA').then(() => {
+        commit('someOtherMutation')
+      });
+    },
+    async actionC({commit}) {
+      commit('gotData', await getData())
+    },
+    async actionD({dispatch, commit}) {
+      await dispatch('actionC');
+      commit('gotOtherData', await getOtherData())
     }
   },
   getters: {
