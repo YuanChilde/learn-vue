@@ -3,21 +3,25 @@ import types from "./mutations-types";
 
 // 第一个参数state，第二个参数为相关功能的必要参数，第三个为rootState，第四个为rootGetters
 export default {
-  namespaced: true,
-  state: {
-    token: db.get("USER_TOKEN"),
-    expireTime: db.get("EXPIRE_TIME"),
-    user: db.get("USER")
-  },
-  mutations: {
-    // state 模块局部变量
-    [types.INCREASE](state, data) {
-      state.add = data;
+    namespaced: true,
+    state: {
+        token: db.get("USER_TOKEN"),
+        expireTime: db.get("EXPIRE_TIME"),
+        user: db.get("USER"),
+        count: 0
     },
-    someMutation(state, data) {
+    mutations: {
+        // state 模块局部变量
+        [types.INCREASE](state, data) {
+            state.add = data;
+        },
+        increment(state, data, rootState) {
+            console.log('111111111');
+        },
+        someMutation(state, data) {
 
-    }
-  },
+        }
+    },
   actions: {
     incrementIfOddOnRootSum({ state, commit, rootState }) {
       console.log(state);
