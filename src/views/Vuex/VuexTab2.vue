@@ -1,9 +1,9 @@
 <template>
     <div>
         <!--可以省略this-->
-        <h3>直接获取状态值：{{ $store.state.count }}</h3>
+        <h3>直接获取状态值：{{ $store.state.account.count }}</h3>
 
-        <a-button type="primary" @click="handleAddClick(10)">action</a-button>
+        <a-button type="primary" @click="handleAddClick(2)">action</a-button>
     </div>
 </template>
 

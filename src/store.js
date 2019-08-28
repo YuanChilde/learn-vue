@@ -44,8 +44,8 @@ const getters = {
 export default new Vuex.Store({
   // 状态变更且不是由 mutation 函数引起的，将会抛出错误
   strict: process.env.NODE_ENV !== "prod",
-  module: {
-    account:account
+  modules: {
+    account
   },
   state,
   mutations,

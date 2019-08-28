@@ -15,21 +15,17 @@ export default {
         [types.INCREASE](state, data) {
             state.add = data;
         },
-        increment(state, data, rootState) {
-            console.log('111111111');
+        increment(state, data) {
+            state.count = data;
         },
         someMutation(state, data) {
 
         }
     },
   actions: {
-    incrementIfOddOnRootSum({ state, commit, rootState }) {
-      console.log(state);
-      console.log(rootState);
-      if ((state.count + rootState.count) % 2 === 1) {
-        commit("increment");
-      }
-    },
+      incrementIfOddOnRootSum({state, commit, rootState}, val) {
+          commit("increment",val);
+      },
     actionA({commit}) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
