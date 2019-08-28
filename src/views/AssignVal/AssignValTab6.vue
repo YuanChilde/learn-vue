@@ -77,6 +77,7 @@
                 form: this.$form.createForm(this),
             };
         },
+        // 本身的:value
         props: ["value"],
         model: {
             prop: 'value',

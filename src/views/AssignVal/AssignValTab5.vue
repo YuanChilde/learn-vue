@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <header>
-            <!--user是插槽Prop-->
+            <!--:user是插槽Prop-->
             <slot name="header" :user="user"></slot>
         </header>
         <main>
